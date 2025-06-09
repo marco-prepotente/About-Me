@@ -16,9 +16,16 @@
             font-family: 'Montserrat', sans-serif;
             background-color: #000;
             color: #fff;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
-            overflow: hidden;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        .main-container {
+            display: flex;
+            flex: 1;
+            flex-direction: row;
         }
 
         .photo-section {
@@ -28,12 +35,15 @@
             justify-content: center;
             align-items: center;
             position: relative;
-            overflow: hidden;
+            min-height: 50vh;
+            padding: 2rem;
         }
 
         .photo-placeholder {
-            width: 80%;
-            height: 80%;
+            width: 100%;
+            max-width: 500px;
+            height: 100%;
+            max-height: 500px;
             border: 5px solid #fff;
             background-color: #222;
             display: flex;
@@ -42,19 +52,28 @@
             font-size: 1.5rem;
             color: #aaa;
             box-shadow: 0 0 50px rgba(255,255,255,0.1);
+            border-radius: 10px;
         }
 
         .info-section {
             flex: 1;
-            padding: 5rem;
+            padding: 2rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
             background: linear-gradient(135deg, #000 0%, #222 100%);
+            overflow-y: auto;
+            max-height: 100vh;
+        }
+
+        .info-content {
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
         }
 
         .name {
-            font-size: 4rem;
+            font-size: clamp(2rem, 5vw, 4rem);
             font-weight: 800;
             margin-bottom: 1.5rem;
             letter-spacing: -1px;
@@ -74,18 +93,22 @@
 
         .info-item {
             margin: 1.2rem 0;
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 2vw, 1.3rem);
             display: flex;
+            flex-wrap: wrap;
         }
 
         .info-label {
             font-weight: 600;
             width: 200px;
             color: #aaa;
+            margin-bottom: 0.3rem;
         }
 
         .info-value {
             font-weight: 400;
+            flex: 1;
+            min-width: 200px;
         }
 
         .decoration {
@@ -118,46 +141,34 @@
             background: linear-gradient(90deg, transparent 0%, #fff 50%, transparent 100%);
         }
 
-        @media (max-width: 1200px) {
-            .name {
-                font-size: 3rem;
-            }
-            
-            .info-item {
-                font-size: 1.1rem;
-            }
-        }
-
-        @media (max-width: 900px) {
-            body {
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .main-container {
                 flex-direction: column;
-                height: auto;
-                min-height: 100vh;
             }
             
             .photo-section {
-                padding: 3rem 0;
+                min-height: 400px;
+                padding: 2rem 1rem;
             }
             
             .photo-placeholder {
-                width: 300px;
-                height: 300px;
-                border-radius: 50%;
+                max-height: 400px;
             }
             
             .info-section {
-                padding: 3rem;
+                padding: 2rem 1rem;
+                max-height: none;
             }
             
             .name {
-                font-size: 2.5rem;
                 text-align: center;
             }
             
             .name::after {
                 left: 50%;
                 transform: translateX(-50%);
-                width: 50%;
+                width: 80%;
             }
             
             .info-item {
@@ -166,87 +177,133 @@
             
             .info-label {
                 width: 100%;
-                margin-bottom: 0.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .photo-placeholder {
+                height: 300px;
+            }
+            
+            .info-item {
+                font-size: 1rem;
+            }
+        }
+
+        /* Smooth transitions for window resizing */
+        @media (min-width: 1025px) {
+            .main-container {
+                flex-direction: row;
+            }
+            
+            .photo-section {
+                position: sticky;
+                top: 0;
+                height: 100vh;
             }
         }
     </style>
 </head>
 <body>
-    <div class="photo-section">
-        <div class="decoration dec-1"></div>
-        <div class="decoration dec-2"></div>
-        <div class="photo-placeholder">
-            [Wala Pang Picture]
+    <div class="main-container">
+        <div class="photo-section">
+            <div class="decoration dec-1"></div>
+            <div class="decoration dec-2"></div>
+            <div class="photo-placeholder">
+                [Wala Pang Picture]
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <div class="info-content">
+                <div class="decoration dec-3"></div>
+                <h1 class="name">Marco Antonio Prepotente</h1>
+                
+                <div class="info-item">
+                    <span class="info-label">Age:</span>
+                    <span class="info-value">16</span>
+                </div>
+                
+                <div class="info-item">
+                    <span class="info-label">Date of Birth:</span>
+                    <span class="info-value">April 9, 2009</span>
+                </div>
+                
+                <div class="info-item">
+                    <span class="info-label">Nationality:</span>
+                    <span class="info-value">Filipino</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-label">Sex:</span>
+                    <span class="info-value">Male</span>
+                </div>
+                
+                <div class="info-item">
+                    <span class="info-label">Gender:</span>
+                    <span class="info-value">Asexual</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-label">School Grade Level:</span>
+                    <span class="info-value">11</span>
+                </div>
+                
+                <div class="info-item">
+                    <span class="info-label">School Name:</span>
+                    <span class="info-value">Ligao National High School</span>
+                </div>
+                
+                <div class="info-item">
+                    <span class="info-label">Address:</span>
+                    <span class="info-value">Sta. Cruz, Bonifacio Street, Albay, Ligao City</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-label">Hobbies:</span>
+                    <span class="info-value">Eating, Eating, Eating, Reading Manwha's/Manga's</span>  
+                </div>
+            </div>
         </div>
     </div>
-    
-    <div class="info-section">
-        <div class="decoration dec-3"></div>
-        <h1 class="name">Marco Antonio Prepotente</h1>
-        
-        <div class="info-item">
-            <span class="info-label">Age:</span>
-            <span class="info-value">16</span>
-        </div>
-        
-        <div class="info-item">
-            <span class="info-label">Date of Birth:</span>
-            <span class="info-value">April 9, 2009</span>
-        </div>
-        
-        <div class="info-item">
-            <span class="info-label">Nationality:</span>
-            <span class="info-value">Filipino</span>
-        </div>
-
-        <div class="info-item">
-            <span class="info-label">Sex:</span>
-            <span class="info-value">Male</span>
-        </div>
-        
-        
-        <div class="info-item">
-            <span class="info-label">Gender:</span>
-            <span class="info-value">Asexual</span>
-        </div>
-
-        <div class="info-item">
-            <span class="info-label">School Grade Level:</span>
-            <span class="info-value">11</span>
-        </div>
-        
-        <div class="info-item">
-            <span class="info-label">School Name:</span>
-            <span class="info-value">Ligao National High School</span>
-        </div>
-        
-        <div class="info-item">
-            <span class="info-label">Address:</span>
-            <span class="info-value">Sta. Cruz, Bonifacio Street, Albay, Ligao City</span>
-        </div>
-
-        <div class="info-item">
-            <span class="info-label">Hobbies:</span>
-            <span class="info-value">Eating,Eating,Eating,Reading Manwha's/Manga's</span>  
-        </div>
 
     <script>
-        // Simple animation on load
+        // Enhanced animation on load
         document.addEventListener('DOMContentLoaded', function() {
             const items = document.querySelectorAll('.info-item');
+            const photo = document.querySelector('.photo-placeholder');
             
+            // Photo animation
+            setTimeout(() => {
+                photo.style.opacity = '1';
+                photo.style.transform = 'scale(1)';
+            }, 200);
+            
+            // Initial styles for animation
+            photo.style.opacity = '0';
+            photo.style.transform = 'scale(0.9)';
+            photo.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            
+            // Info items animation
             items.forEach((item, index) => {
                 setTimeout(() => {
                     item.style.opacity = '1';
                     item.style.transform = 'translateX(0)';
-                }, index * 100);
-            });
-            
-            // Set initial styles for animation
-            items.forEach(item => {
+                }, 300 + (index * 100));
+                
                 item.style.opacity = '0';
                 item.style.transform = 'translateX(20px)';
                 item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            // Handle window resize smoothly
+            let resizeTimer;
+            window.addEventListener('resize', function() {
+                document.body.classList.add('resize-animation-stopper');
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    document.body.classList.remove('resize-animation-stopper');
+                }, 400);
             });
         });
     </script>
