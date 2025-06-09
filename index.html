@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taeloria - The Suspended Vessel of Potential</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Marcellus&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Marcellus', serif;
+            background: #0a0a15 url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=1471&auto=format&fit=crop') no-repeat center/cover fixed;
+            color: #fff;
+            line-height: 1.8;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(10, 10, 20, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            color: #D4AF37;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+        }
+
+        .sub-title {
+            font-size: 1.5rem;
+            color: #fff;
+            opacity: 0.9;
+            letter-spacing: 1px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .nav-btn {
+            background: rgba(212, 175, 55, 0.2);
+            color: #D4AF37;
+            border: 2px solid #D4AF37;
+            padding: 0.8rem 1.5rem;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: rgba(212, 175, 55, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .content-section {
+            display: none;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(15, 15, 25, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            color: #D4AF37;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        .lore-block {
+            background: rgba(10, 10, 20, 0.6);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .lore-title {
+            font-family: 'Cinzel', serif;
+            color: #D4AF37;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .lore-subtitle {
+            font-family: 'Marcellus', serif;
+            color: #c0b0d0;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+            border-bottom: 1px dashed rgba(212, 175, 55, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .lore-content {
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-title { font-size: 2.5rem; }
+            .sub-title { font-size: 1.2rem; }
+            .nav-buttons { flex-direction: column; align-items: center; }
+            .nav-btn { width: 100%; text-align: center; }
+            .content-section { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="main-title">TAELORIA</h1>
+        <p class="sub-title">The Suspended Vessel of Potential</p>
+    </header>
+
+    <div class="nav-buttons">
+        <button class="nav-btn" data-section="overview">Overview</button>
+        <button class="nav-btn" data-section="seven-islands">Seven Islands</button>
+        <button class="nav-btn" data-section="cultivation">Cultivation</button>
+        <button class="nav-btn" data-section="divine-pantheon">Divine Pantheon</button>
+        <button class="nav-btn" data-section="heavens-trial">Heaven's Trial</button>
+    </div>
+
+    <section id="overview" class="content-section">
+        <h2 class="section-title">Overview</h2>
+        <div class="lore-block">
+            <h3 class="lore-title">Title....</h3>
+            <p class="lore-subtitle">SubTitle...</p>
+            <div class="lore-content">
+                <p>Main Content...</p>
+            </div>
+        </div>
+        
+    </section>
+
+    <section id="cultivation" class="content-section">
+        <h2 class="section-title">Cultivation</h2>
+        <div class="lore-block">
+            <h3 class="lore-title">Title....</h3>
+            <p class="lore-subtitle">SubTitle...</p>
+            <div class="lore-content">
+                <p>Main Content...</p>
+            </div>
+        </div>
+        
+    </section>
+    <section id="heavens-trial" class="content-section">
+        <h2 class="section-title">Heaven's Trial</h2>
+        <div class="lore-block">
+            <h3 class="lore-title">Title....</h3>
+            <p class="lore-subtitle">SubTitle...</p>
+            <div class="lore-content">
+                <p>Main Content...</p>
+            </div>
+        </div>
+        
+    </section>  
+
+    <section id="divine-pantheon" class="content-section">
+        <h2 class="section-title">Divine Pantheon</h2>
+        <div class="lore-block">
+            <h3 class="lore-title">Title....</h3>
+            <p class="lore-subtitle">SubTitle...</p>
+            <div class="lore-content">
+                <p>Main Content...</p>
+            </div>
+        </div>
+        
+    </section>
+
+    <section id="seven-islands" class="content-section">
+        <h2 class="section-title">Seven Islands</h2>
+        <div class="lore-block">
+            <h3 class="lore-title">Title....</h3>
+            <p class="lore-subtitle">SubTitle...</p>
+            <div class="lore-content">
+                <p>Main Content...</p>
+            </div>
+        </div>
+        
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('.nav-btn');
+            const sections = document.querySelectorAll('.content-section');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    sections.forEach(section => section.classList.remove('active'));
+                    button.classList.add('active');
+                    document.getElementById(button.getAttribute('data-section')).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
