@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
+    <title>Taeloria - The Suspended Vessel of Potential</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Marcellus&display=swap" rel="stylesheet">
     <style>
-        /* CSS Reset */
         * {
             margin: 0;
             padding: 0;
@@ -13,264 +15,1000 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #000;
+            font-family: 'Marcellus', serif;
+            background: #0a0a15 url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=1471&auto=format&fit=crop') no-repeat center/cover fixed;
             color: #fff;
+            line-height: 1.8;
             min-height: 100vh;
             overflow-x: hidden;
+            padding: 20px;
         }
 
-        .container {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+        .header {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(10, 10, 20, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
         }
 
-        /* Photo section - mobile first (circle) */
-        .photo-section {
-            background-color: #111;
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            color: #D4AF37;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+        }
+
+        .sub-title {
+            font-size: 1.5rem;
+            color: #fff;
+            opacity: 0.9;
+            letter-spacing: 1px;
+        }
+
+        .nav-buttons {
             display: flex;
             justify-content: center;
-            align-items: center;
-            padding: 2rem;
-            min-height: 40vh;
-        }
-
-        .photo-container {
-            width: 250px;
-            height: 250px;
-            border: 5px solid #fff;
-            background-color: #222;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            box-shadow: 0 0 50px rgba(255,255,255,0.1);
-            border-radius: 50%; /* Circle on mobile */
-        }
-
-        .profile-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: none; /* Hidden by default */
-        }
-
-        .photo-placeholder {
-            font-size: 1.2rem;
-            color: #aaa;
-            text-align: center;
-            padding: 1rem;
-        }
-
-        /* Info section */
-        .info-section {
-            padding: 2rem;
-            background: linear-gradient(135deg, #000 0%, #222 100%);
-        }
-
-        .info-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .name {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            letter-spacing: -1px;
-            position: relative;
-            display: inline-block;
-            text-align: center;
-            width: 100%;
-        }
-
-        .name::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            height: 3px;
-            background: linear-gradient(90deg, #fff 0%, transparent 100%);
-        }
-
-        .info-item {
-            margin: 1.2rem 0;
-            font-size: 1.1rem;
-            display: flex;
+            gap: 1rem;
             flex-wrap: wrap;
+            padding: 1rem;
+            margin-bottom: 2rem;
         }
 
-        .info-label {
-            font-weight: 600;
-            width: 100%;
-            color: #aaa;
-            margin-bottom: 0.3rem;
-        }
-
-        .info-value {
-            font-weight: 400;
-            width: 100%;
-        }
-
-        /* PC layout (min-width: 1024px) */
-        @media (min-width: 1024px) {
-            .container {
-                flex-direction: row;
-            }
-
-            .photo-section {
-                position: sticky;
-                top: 0;
-                height: 100vh;
-                width: 50%;
-                min-height: auto;
-            }
-
-            .photo-container {
-                width: 80%;
-                height: 80%;
-                max-width: 500px;
-                max-height: 500px;
-                border-radius: 10px; /* Square on desktop */
-            }
-
-            .info-section {
-                width: 50%;
-                height: 100vh;
-                overflow-y: auto;
-                padding: 4rem;
-            }
-
-            .name {
-                text-align: left;
-                font-size: 3.5rem;
-            }
-
-            .name::after {
-                left: 0;
-                transform: none;
-                width: 100%;
-            }
-
-            .info-item {
-                flex-direction: row;
-                font-size: 1.2rem;
-            }
-
-            .info-label {
-                width: 200px;
-                margin-bottom: 0;
-            }
-
-            .info-value {
-                width: calc(100% - 200px);
-            }
-        }
-
-        /* Smooth transitions */
-        .photo-section, .info-section, .name, .info-item, .photo-container {
+        .nav-btn, .sub-btn, .tier-btn, .realm-btn {
+            background: rgba(212, 175, 55, 0.2);
+            color: #D4AF37;
+            border: 2px solid #D4AF37;
+            padding: 0.8rem 1.5rem;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            cursor: pointer;
             transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .nav-btn:hover, .nav-btn.active, 
+        .sub-btn:hover, .sub-btn.active,
+        .tier-btn:hover, .tier-btn.active,
+        .realm-btn:hover, .realm-btn.active {
+            background: rgba(212, 175, 55, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .content-section {
+            display: none;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(15, 15, 25, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .sub-section {
+            display: none;
+        }
+
+        .sub-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tier-section, .realm-section {
+            display: none;
+        }
+
+        .tier-section.active, .realm-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            color: #D4AF37;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        .lore-block {
+            background: rgba(10, 10, 20, 0.6);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .lore-title {
+            font-family: 'Cinzel', serif;
+            color: #D4AF37;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .lore-subtitle {
+            font-family: 'Marcellus', serif;
+            color: #c0b0d0;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+            border-bottom: 1px dashed rgba(212, 175, 55, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .lore-content {
+            margin-top: 1rem;
+        }
+
+        .sub-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tier-buttons, .realm-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .island-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem;
+            margin: 0 auto;
+            max-width: 900px;
+        }
+
+        @media (max-width: 768px) {
+            .island-buttons {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .island-buttons {
+                grid-template-columns: 1fr;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-title { font-size: 2.5rem; }
+            .sub-title { font-size: 1.2rem; }
+            .nav-buttons { flex-direction: column; align-items: center; }
+            .nav-btn, .sub-btn, .tier-btn, .realm-btn { width: 100%; text-align: center; }
+            .content-section { padding: 1.5rem; }
+            .island-buttons { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="photo-section">
-            <div class="photo-container">
-                <!-- Replace with your image -->
-                <img class="profile-image" id="profile-pic" src="" alt="Marco Prepotente">
-                <div class="photo-placeholder">
-                    [Image Loading...]
-                </div>
-            </div>
-        </div>
-        
-        <div class="info-section">
-            <div class="info-content">
-                <h1 class="name">Marco Antonio Prepotente</h1>
-                
-                <div class="info-item">
-                    <span class="info-label">Age:</span>
-                    <span class="info-value">16</span>
-                </div>
-                
-                <div class="info-item">
-                    <span class="info-label">Date of Birth:</span>
-                    <span class="info-value">April 9, 2009</span>
-                </div>
-                
-                <div class="info-item">
-                    <span class="info-label">Nationality:</span>
-                    <span class="info-value">Filipino</span>
-                </div>
+    <header class="header">
+        <h1 class="main-title">TAELORIA</h1>
+        <p class="sub-title">The Suspended Vessel of Potential</p>
+    </header>
 
-                <div class="info-item">
-                    <span class="info-label">Sex:</span>
-                    <span class="info-value">Male</span>
-                </div>
-                
-                <div class="info-item">
-                    <span class="info-label">Gender:</span>
-                    <span class="info-value">Asexual</span>
-                </div>
-
-                <div class="info-item">
-                    <span class="info-label">School Grade Level:</span>
-                    <span class="info-value">11</span>
-                </div>
-                
-                <div class="info-item">
-                    <span class="info-label">School Name:</span>
-                    <span class="info-value">Ligao National High School</span>
-                </div>
-                
-                <div class="info-item">
-                    <span class="info-label">Address:</span>
-                    <span class="info-value">Sta. Cruz, Bonifacio Street, Albay, Ligao City</span>
-                </div>
-
-                <div class="info-item">
-                    <span class="info-label">Hobbies:</span>
-                    <span class="info-value">Eating, Eating, Eating, Reading Manwha's/Manga's</span>  
-                </div>
-            </div>
-        </div>
+    <div class="nav-buttons">
+        <button class="nav-btn" data-section="overview">Overview</button>
+        <button class="nav-btn" data-section="seven-islands">Seven Islands</button>
+        <button class="nav-btn" data-section="cultivation">Cultivation</button>
+        <button class="nav-btn" data-section="divine-pantheon">Divine Pantheon</button>
+        <button class="nav-btn" data-section="heavens-trial">Heaven's Trial</button>
     </div>
 
-    <script>
-        const imageUrl = 'https://raw.githubusercontent.com/marco-prepotente/Images/main/myimage.jpg';
+    <section id="overview" class="content-section">
+        <h2 class="section-title">Overview</h2>
+            <div class="lore-block">
+            <h3 class="lore-title">Immortal's Destiny</h3>
+            <p class="lore-subtitle">Ascend Through 250 Divine Realms in the Floating World of Taeloria</p>
+            <div class="lore-content">
+                <p>Enter Taeloria, the Suspended Vessel of Potential, a realm of seven floating islands where mortals dare to challenge the gods themselves. Born from the ashes of the First Realm's destruction, this cosmic sanctuary exists in perfect balance between the Nine Celestial Courts above and the Eighteen Abyssal Pits below.
+
+Master the Ancient Cultivation Paths
+Progress through 250 meticulously crafted realms, from humble Mortal Foundation to the legendary Universal Ascendant. Choose your divine path of the righteous Heaven Path, the primal Fallen Beast Path, the destructive Devil Path or the mysterious Poison Path 
+
+Serve the Divine Powers
+Align yourself with the Supreme Triad who rule this realm:
+
+Corellon, the Architect of Reality - God of Creation who shapes existence itself
+Sango, the King of Hell - God of Chaos who governs life, death, and rebirth
+Aster, the Bloodfallen - God of Carnage who believes strength conquers all
+
+Join Legendary Sects
+
+The Blackfall Covenant - Sango's secretive disciples mastering the forbidden Death Path
+
+The Bloodfallen Sect - Aster's warriors perfecting combat through blood and battle using the Blood Path
+
+Independent Cultivation Movement - Forge your own sect and cultivation techniques
+
+Face the Ultimate Trial :
+
+The 60th Heaven's Trial approaches - when cultivators reach sufficient power, the armies of Heaven and Hell will return to wage cosmic war upon the mortal realm. Will you defend Taeloria's independence, join the celestial crusade, or embrace the abyssal chaos?
+Your destiny awaits in the realm where mortals become gods, and gods fear mortal ambition.
+Experience authentic Murim cultivation with deep lore, meaningful progression, and epic PvP in the most detailed cultivation world ever created for Roblox.</p>
+            </div>
+            <br>
+            <br>
+
+            
+
+
+            </div>
+            <h2 class="section-title">Lore</h2>
+            <div class = "lore-block">
+                <h3 class="lore-title">The Chronicles of Taeloria</h3>
+                <p class="lore-subtitle">From Primordial Void to Divine War - The Epic History of Creation</p>
+                <div class="lore-content">
+                    <p>Discover the epic saga that shaped the floating realm of Taeloria, where gods walk among mortals and ancient prophecies unfold across cosmic battlefields.
+
+THE PRIMORDIAL ERA - BIRTH OF CONSCIOUSNESS
+In the beginning existed only the Primordial Void - perfect emptiness, absolute nothingness containing neither matter nor energy, time nor space. Yet within this paradox of nothingness lay the seed of everything.
+
+From this cosmic vacuum emerged Corellon, the First Consciousness, awakening as creation itself given form. His birth touched upon realms that had always existed beyond the Void - the Nine Celestial Courts above and the Eighteen Abyssal Pits below.
+
+THE DIVINE CONVERGENCE
+Four ancient primordial forces, long seeking worthy vessels, found their champions:
+From Heaven's Courts came twins Aster and Arwen, elite warriors who felt an inexplicable pull toward Corellon's emerging creation. The Perfect Conquest chose Aster, transforming him into the War King of Heaven. The Lunar Eclipse chose Arwen, granting her dominion over sun and moon.
+From Hell's depths came Sango and his brother Rondo, the King of Hell and his trusted advisor, exiled by treacherous generals. The Primordial Chaos empowered Sango with even greater dominion over entropy. The Hidden Truth enhanced Rondo into a keeper of cosmic secrets.
+
+THE FIRST REALM - PARADISE LOST
+Together, these five gods shaped the First Realm, a place where creation, combat, death, life, and hidden knowledge coexisted in dynamic harmony. For eons, they experimented with reality itself:
+
+Corellon crafted regions of perfect geometric harmony
+Sango developed transitional spaces where endings became beginnings
+Aster established arenas of honorable combat and strength
+Arwen created domains of eternal twilight where celestial bodies danced
+Rondo cultivated shadowed realms of secrets and forbidden knowledge
+
+
+THE SUNDERING - COSMIC CATASTROPHE
+Paradise could not last. When both the Celestial Sovereigns and Hell's usurper generals realized the threat this new reality posed, they formed an unholy alliance. The resulting Primordial Wars culminated in The Sundering, a cataclysm that shattered the First Realm into countless fragments.
+In desperation, the five allied gods combined their powers in ways never before attempted, enacting a cosmic quarantine that cut their portion of reality off from both Heaven and Hell.THE BIRTH OF TAELORIA
+From the shattered fragments, the gods created Taeloria - "The Suspended Vessel of Potential." Seven major islands now float suspended between the World Pool of primordial energy below and the Heavenly Tether connection above, connected by invisible Cosmic Meridians that channel divine power.
+
+The Divine Compact established the cosmic hierarchy:
+
+The Supreme Triad: Corellon, Sango, and Aster as ruling gods
+The Divine Peers: Arwen and Rondo as siblings of power
+The Vassal Gods: Powerful entities serving the Supreme Triad
+The Soul Reapers: Sango's extensions guiding souls to their destinies
+
+THE GREAT SECTS
+Three legendary organizations emerged to serve the gods:
+
+The Blackfall Covenant: Invisible Hand of Death - Sango's secretive followers practicing the forbidden Death Path, preparing for their god's full restoration from hidden sanctuaries.
+
+The Bloodfallen Sect: Scions of Carnage - Aster's warriors divided into three houses: the honorable Scarlet Vow, the stealthy Silent Vein, and the mystical Withered Sigil, all mastering the exclusive Blood Path.
+
+The Independent Cultivation Movement - Following Corellon's Divine Mandate, exceptional cultivators forge their own sects and techniques, representing a new possibility the gods never envisioned.</p>
+                </div>
+        </div>
+    </section>
+
+    <section id="cultivation" class="content-section">
+        <h2 class="section-title">Cultivation</h2>
+        <div class="sub-buttons">
+            <button class="sub-btn" data-subsection="paths">Paths</button>
+            <button class="sub-btn" data-subsection="body-realms">Body Realms</button>
+            <button class="sub-btn" data-subsection="qi-realms">Qi Realms</button>
+            <button class="sub-btn" data-subsection="races">Races</button>
+            <button class="sub-btn" data-subsection="traits">Traits</button>
+        </div>
         
-        document.addEventListener('DOMContentLoaded', function() {
-            const profilePic = document.getElementById('profile-pic');
-            const placeholder = document.querySelector('.photo-placeholder');
+        <!-- Body Realms Section -->
+        <div id = "paths" class="sub-section"> 
+            <div class="lore-block">
+                <h3 class="lore-title">Cultivation Paths</h3>
+
+                <div class = "lore-block">
+                    <h3 class="lore-title">Heavenly Path</h3>
+                    <p class="lore-subtitle">Originally from the Celestial Courts, acquired by Aster</p>
+                    <div class="lore-content"><ul>
+                            <li><strong>Energy Color:</strong>Blue light with celestial gold weapon-like threads</li>
+                            <li><strong>Philosophy:</strong>Understanding celestial patterns governing existence</li>
+                            <li><strong>Masters:</strong>Channel cosmic energy in purest form, perceive universal harmonies</li>
+                            <li><strong>Practitioners:</strong>Those seeking order, justice, and cosmic understanding</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class = "lore-block">
+                    <h3 class="lore-title">Demonic Path</h3>
+                    <p class="lore-subtitle">From the Abyssal Pits, acquired by Sango</p>
+                    <div class="lore-content"><ul>
+                            <li><strong>Energy Color:</strong>Deep amethyst with shadowy violet and indigo abyssal script.</li>
+                            <li><strong>Philosophy:</strong>Understanding inherent weaknesses in all existence</li>
+                            <li><strong>Masters:</strong>Identify precise vulnerability points, exploit structural flaws</li>
+                            <li><strong>Practitioners:</strong>Those embracing necessary endings and dissolution</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class = "lore-block">
+                    <h3 class="lore-title">Beastly</h3>
+                    <p class="lore-subtitle">Emerged organically within the Murim Realm</p>
+                    <div class="lore-content"><ul>
+                            <li><strong>Energy Color:</strong>Shifting amber with crimson veins forming organic patterns</li>
+                            <li><strong>Philosophy:</strong>Harmonizing primal essence with conscious will</li>
+                            <li><strong>Masters:</strong>Communicate with beast spirits, undergo complete transformations</li>
+                            <li><strong>Practitioners:</strong>Those honoring natural instincts and evolutionary wisdom </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class = "lore-block">
+                    <h3 class="lore-title">Poison Path</h3>
+                    <p class="lore-subtitle">Mysterious origins predating even the First Realm</p>
+                    <div class="lore-content"><ul>
+                            <li><strong>Energy Color:</strong>Shimmering viridian mist with pulsing violet veins</li>
+                            <li><strong>Philosophy:</strong>All power carries toxicity that can be transmuted to strength</li>
+                            <li><strong>Masters:</strong>Near-immunity to corruption, synthesize miraculous elixirs</li>
+                            <li><strong>Practitioners:</strong>Those who embrace transformation through adversity</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class = "lore-block">
+                    <h3 class="lore-title">Heavenly Path</h3>
+                    <p class="lore-subtitle">Originally from the Celestial Courts, acquired by Aster</p>
+                    <div class="lore-content"><ul>
+                            <li><strong>Energy Color:</strong></li>
+                            <li><strong>Philosophy:</strong> </li>
+                            <li><strong>Masters:</strong></li>
+                            <li><strong>Practitioners:</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class = "lore-block">
+                    <h3 class="lore-title">Creation Path</h3>
+                    <p class="lore-subtitle">Corellon's direct path</p>
+                    <div class="lore-content"><ul>
+                            <li><strong>Energy Color:</strong>Silver-white light forming precise geometric patterns</li>
+                            <li><strong>Philosophy:</strong>Reality consists of patterns waiting to be rearranged</li>
+                            <li><strong>Masters:</strong>Create semi-permanent alterations, establish pocket domains</li>
+                            <li><strong>Practitioners:</strong>Those seeking to understand and reshape fundamental reality</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class = "lore-block">
+                    <h3 class="lore-title">Death Path</h3>
+                    <p class="lore-subtitle">Exclusive to the Blackfall Covenant</p>
+                    <div class="lore-content"><ul>
+                            <li><strong>Energy Color:</strong>Deep purple-black (Shadow Covenant), silver-white (Luminous Guides)</li>
+                            <li><strong>Philosophy:</strong>Master complete cycle of existence through transition understanding</li>
+                            <li><strong>Masters:</strong>Perceive imminent transitions, capture transformation energy</li>
+                            <li><strong>Practitioners:</strong>Sango's chosen disciples preparing for cosmic restoration</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class = "lore-block">
+                    <h3 class="lore-title">Blood Path</h3>
+                    <p class="lore-subtitle">Deep crimson that moves with apparent consciousness</p>
+                    <div class="lore-content"><ul>
+                            <li><strong>Energy Color:</strong>Deep crimson that moves with apparent consciousness</li>
+                            <li><strong>Philosophy:</strong>True power flows from blood willingly spilled and mastered</li>
+                            <li><strong>Masters:</strong>Blood no longer red but conscious crimson, instant weapon manifestation</li>
+                            <li><strong>Practitioners:</strong>Warriors who've proven worthy through Aster's trials</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class = "lore-block">
+                    <h3 class="lore-title">Chaos Path</h3>
+                    <p class="lore-subtitle">Reserved exclusively for Sango himself</p>
+                    <div class="lore-content"><ul>
+                            <li><strong>Energy Color:</strong>Midnight blue with threads of every conceivable color</li>
+                            <li><strong>Philosophy:</strong>Transcend limitations by harnessing formless potential</li>
+                            <li><strong>Masters:</strong>Only Sango can survive this technique without dissolution</li>
+                            <li><strong>Practitioners:</strong>Reality continuously unmade and remade according to will</li>
+                        </ul>
+                    </div>
+                </div>
+                <p>Each path leads to different cultivation realms, allowing cultivators to specialize in their chosen discipline.</p>
+            </div>
+        </div>
+        <div id="body-realms" class="sub-section">
+            <h3 class="lore-title">--------------------------[Physical Foundation Mastery]--------------------------</h3>
+            <p class="lore-subtitle">-------------------------[Tempering Mortal Flesh to Channel Divine Forces]-------------------------</p>
             
-            if (imageUrl) {
-                profilePic.src = imageUrl;
-                profilePic.onload = function() {
-                    profilePic.style.display = 'block';
-                    placeholder.style.display = 'none';
-                };
-                profilePic.onerror = function() {
-                    placeholder.textContent = '[Image Failed to Load]';
-                };
-            } else {
-                placeholder.textContent = '[No Image URL Provided]';
-            }
+            <div class="realm-buttons">
+                <button class="realm-btn" data-realm="mortal-foundation-body">Mortal Foundation Stage</button>
+                <button class="realm-btn" data-realm="cultivator-stage">Cultivator Stage</button>
+                <button class="realm-btn" data-realm="cosmic-integration">Cosmic Integration Stage</button>
+                <button class="realm-btn" data-realm="divine-resonance">Divine Resonance Stage</button>
+                <button class="realm-btn" data-realm="transcendent-ascension">Transcendent Ascension Stage</button>
+            </div>
             
-            // Animate elements on load
-            const elements = document.querySelectorAll('.photo-container, .info-item');
-            elements.forEach((el, index) => {
-                setTimeout(() => {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }, 100 * index);
-                
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            <div id="mortal-foundation-body" class="realm-section">
+                <div class="lore-block">
+                    <h3 class="lore-title">Mortal Foundation Stage</h3>
+                    <p class="lore-subtitle">Realms 1-50: Tempering Flesh for Cosmic Energy</p>
+                    <div class="lore-content">
+                        <p>Transform your ordinary human body into a foundation capable of cultivation. Through Flesh Tempering, Bone Hardening, Muscle Refinement, and Organ Strengthening, you prepare your physical vessel to channel qi energy without destruction.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="cultivator-stage" class="realm-section">
+                <div class="lore-block">
+                    <h3 class="lore-title">Cultivator Stage</h3>
+                    <p class="lore-subtitle">Realms 51-100: Body Adapts to Supernatural Forces</p>
+                    <div class="lore-content">
+                        <p>Your physical form undergoes profound changes as qi energy flows through meridians. Develop Enhanced Reflexes, Supernatural Strength, and Energy-Infused Physique that transcends human norms.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="cosmic-integration" class="realm-section">
+                <div class="lore-block">
+                    <h3 class="lore-title">Cosmic Integration Stage</h3>
+                    <p class="lore-subtitle">Realms 101-150: Body Incorporates Cosmic Forces</p>
+                    <div class="lore-content">
+                        <p>Your physical form begins incorporating fundamental cosmic elements. Elemental Fusion, Astral Integration, and Divine Channeling transform your body into a living conduit for cosmic forces.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="divine-resonance" class="realm-section">
+                <div class="lore-block">
+                    <h3 class="lore-title">Divine Resonance Stage</h3>
+                    <p class="lore-subtitle">Realms 151-200: Body Becomes Divine Vessel</p>
+                    <div class="lore-content">
+                        <p>Transform into a Heavenly Qi Vessel where your physical body embodies cosmic principles. Develop Celestial Circuitry, Divine Framework, and Reality-Touched Physique capabilities.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="transcendent-ascension" class="realm-section">
+                <div class="lore-block">
+                    <h3 class="lore-title">Transcendent Ascension Stage</h3>
+                    <p class="lore-subtitle">Realms 201-250: Body Defies Cosmic Laws</p>
+                    <div class="lore-content">
+                        <p>Achieve ultimate physical transcendence through Divine Metamorphosis, Dimensional Existence, and Universal Embodiment. Your body rivals the gods in capability and cosmic authority.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Qi Realms Section -->
+        <div id="qi-realms" class="sub-section">
+            <h3 class="lore-title">---------------------------[Energy Cultivation Mastery]---------------------------</h3>
+            <p class="lore-subtitle">-------------------------[Harnessing Cosmic Forces Through Internal Development]-------------------------</p>
+
+            <div class="realm-buttons">
+                <button class="realm-btn" data-realm="mortal-foundation-qi">Mortal Foundation</button>
+                <button class="realm-btn" data-realm="core-cultivation">Core Cultivation</button>
+                <button class="realm-btn" data-realm="soul-cultivation">Soul Cultivation</button>
+                <button class="realm-btn" data-realm="immortal-stages">Immortal Stages</button>
+                <button class="realm-btn" data-realm="divinity-stages">Divinity Stages</button>
+            </div>
+            
+            <div id="mortal-foundation-qi" class="realm-section">
+                <div class="lore-block">
+                    <h3 class="lore-title">Mortal Foundation</h3>
+                    <p class="lore-subtitle">Realms 1-50: Awakening to Cosmic Energy</p>
+                    <div class="lore-content">
+                        <p>First contact with qi energy and establishing your cultivation foundation. Through Qi Awareness, Energy Sensitivity, Breath Cultivation, and Foundation Establishment, you transform from ordinary mortal to someone capable of sensing and manipulating cosmic forces.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="core-cultivation" class="realm-section">
+                <div class="lore-block">
+                    <h3 class="lore-title">Core Cultivation</h3>
+                    <p class="lore-subtitle">Realms 51-100: Forming Golden Core and Spiritual Awareness</p>
+                    <div class="lore-content">
+                        <p>Form your legendary Golden Core and develop Spiritual Sense extending beyond physical form. Master qi projection, create energy constructs, and achieve Core Transcendence preparing for soul development.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="soul-cultivation" class="realm-section">
+                <div class="lore-block">
+                    <h3 class="lore-title">Soul Cultivation</h3>
+                    <p class="lore-subtitle">Realms 101-150: Nascent Soul and Dimensional Mastery</p>
+                    <div class="lore-content">
+                        <p>Birth your Nascent Soul and construct a Void Palace in dimensional space. Master Soul Projection and Soul Transformation, developing spiritual essence that can act independently of physical form.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="immortal-stages" class="realm-section">
+                <div class="lore-block">
+                    <h3 class="lore-title">Immortal Stages</h3>
+                    <p class="lore-subtitle">Realms 151-200: Achieving True Immortality</p>
+                    <div class="lore-content">
+                        <p>Transcend mortal limitations through Void Refinement, Body Integration, Mahayana, and Tribulation Transcendence. Achieve Earth Immortal status where death becomes impossible and energy becomes infinite.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="divinity-stages" class="realm-section">
+                <div class="lore-block">
+                    <h3 class="lore-title">Divinity Stages</h3>
+                    <p class="lore-subtitle">Realms 201-250: Challenging the Gods Themselves</p>
+                    <div class="lore-content">
+                        <p>The ultimate cultivation achievement where mortals claim divine authority. Progress through Heaven Immortal, True Immortal, Golden Immortal, and finally Universal Ascendant - rivaling the Supreme Triad themselves.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Races Section -->
+        <div id="races" class="sub-section">
+            <div class="tier-buttons">
+                <button class="tier-btn" data-tier="non-existential">Non-Existential</button>
+                <button class="tier-btn" data-tier="supreme">Supreme</button>
+                <button class="tier-btn" data-tier="exalted">Exalted</button>
+                <button class="tier-btn" data-tier="common">Common</button>
+            </div>
+            
+            <div id="non-existential-race" class="tier-section">
+                <div class="lore-block">
+                    <h3 class="lore-title">Non-Existential Races</h3>
+                    <p class="lore-subtitle">Beyond the Bounds of Reality</p>
+                    <div class="lore-content">
+                        <p>
+                            Elven(Forestborn,Patternweaver,Divine Eternity) <br>
+                            <br>
+                            Chaosborn(Abyssal Warrior,Abyssal Lord,King of Hell) <br>
+                            <br>
+                            Fallen Celestial(Blood Knight,Crimson Sovereign,BloodFallen) <br>
+                            <br>
+                            GoldFlesh(Divine Hunger,Divinity Devourer,God Eater) <br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="supreme-race" class="tier-section">
+                <div class="lore-block">
+                    <h3 class="lore-title">Supreme Races</h3>
+                    <p class="lore-subtitle">Peak of Existence</p>
+                    <div class="lore-content">
+                        <p>
+                            Succubus(Dreamweaver,Desireborn,Love Sovereign) <br>
+                            <br>
+                            StarSeed(Voidmarked,StarChild,Celestialborn) <br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="exalted-race" class="tier-section">
+                <div class="lore-block">
+                    <h3 class="lore-title">Exalted Races</h3>
+                    <p class="lore-subtitle">Noble Bloodlines</p>
+                    <div class="lore-content">
+                        <p>
+                            Crimsonborn(Bloodstained,BloodMarked,Bloodborn) <br>
+                            <br>
+                            Luminar(Dawnchild,SunVessel,Light Lord) <br>
+                            <br>
+                            Voidtouched(Nullorn,Nexuswalker,Boundless) <br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="common-race" class="tier-section">
+                <div class="lore-block">
+                    <h3 class="lore-title">Common Races</h3>
+                    <p class="lore-subtitle">Foundation of the World</p>
+                    <div class="lore-content">
+                        <p>
+                            Beastkin(Wildkin,Dragonkin,BeastKing Bloodline) <br>
+                            <br>
+                            Human(Dirtywalker,Soilstrider,Terraformer) <br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Traits Section -->
+        <div id="traits" class="sub-section">
+            <div class="tier-buttons">
+                <button class="tier-btn" data-tier="non-existential-traits">Non-Existential</button>
+                <button class="tier-btn" data-tier="supreme-traits">Supreme</button>
+                <button class="tier-btn" data-tier="exalted-traits">Exalted</button>
+                <button class="tier-btn" data-tier="common-traits">Common</button>
+            </div>
+            
+            <div id="non-existential-traits" class="tier-section">
+                <div class="lore-block">
+                    <h3 class="lore-title">Non-Existential Traits</h3>
+                    <p class="lore-subtitle">Beyond the Bounds of Reality</p>
+                    <div class="lore-content">
+                        <p>Content about Non-Existential traits goes here...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="supreme-traits" class="tier-section">
+                <div class="lore-block">
+                    <h3 class="lore-title">Supreme Traits</h3>
+                    <p class="lore-subtitle">Peak of Existence</p>
+                    <div class="lore-content">
+                        <p>Content about Supreme traits goes here...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="exalted-traits" class="tier-section">
+                <div class="lore-block">
+                    <h3 class="lore-title">Exalted Traits</h3>
+                    <p class="lore-subtitle">Noble Characteristics</p>
+                    <div class="lore-content">
+                        <p>Content about Exalted traits goes here...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="common-traits" class="tier-section">
+                <div class="lore-block">
+                    <h3 class="lore-title">Common Traits</h3>
+                    <p class="lore-subtitle">Foundation of the World</p>
+                    <div class="lore-content">
+                        <p>Content about Common traits goes here...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="heavens-trial" class="content-section">
+        <h2 class="section-title">Heaven's Trial</h2>
+        <div class="lore-block">
+            <h3 class="lore-title">The Cultivation Threshold War</h3>
+            <p class="lore-subtitle">When Mortals Touch Divinity, Ancient Enemies Return to Battle</p>
+            <div class="lore-content">
+                <p>The 60th Heaven's Trial is not merely a celestial alignment, it is the prophesied return of Heaven and Hell to wage war upon the mortal realm when Taeloria's cultivators reach sufficient power to witness such cosmic conflict.
+
+THE ANCIENT PROPHECY
+"When mortal flesh achieves divine resonance, when earthbound souls touch the realm of gods, the barriers shall thin and the ancient war shall resume upon the middle ground."
+During the Sundering, both the Nine Celestial Courts and Eighteen Abyssal Pits were cut off from Taeloria by Corellon's cosmic quarantine. But divine law states they may return when mortals prove capable of surviving their presence.
+
+THE ACTIVATION THRESHOLD
+The Trial triggers when:
+
+100+ cultivators reach Divine Resonance (Realm 151+)
+Combined cultivation energy achieves critical divine threshold
+The realm proves ready for cosmic warfare
+
+Current Status: Taeloria rapidly approaches this threshold as more cultivators break mortal limitations.
+
+**THE RETURNING ARMIES**
+
+THE CELESTIAL INVASION
+The Nine Celestial Courts manifest their armies in the sky above Taeloria, led by the Celestial Sovereigns who originally exiled Aster and Arwen. They seek to reclaim their "stolen" champions and restore cosmic order by force.
+
+THE ABYSSAL EMERGENCE
+The Eighteen Abyssal Pits breach through the World Pool, led by the traitorous generals who overthrew Sango. They seek to claim his domain and merge the Murim Realm with Hell itself.
+
+THE GODS' DILEMMA
+
+Corellon must choose between maintaining the quarantine or defending his realm
+Sango faces his original betrayers while at diminished power
+Aster must decide between Heaven's call and his chosen mortal realm
+Arwen's dual nature makes her a target for both armies
+Rondo's secrets may determine the war's outcome
+
+
+THE MORTAL CHOICE
+High-level cultivators must choose their fate:
+
+Side with Heaven - Join the celestial crusade for cosmic order
+
+Side with Hell - Embrace abyssal chaos and unlimited power
+
+Defend Taeloria - Fight alongside the gods for realm independence
+
+VICTORY CONDITIONS
+
+Heaven Wins: Taeloria becomes a vassal realm under celestial law
+
+Hell Wins: The realm merges with the Abyssal Pits in eternal chaos
+
+Taeloria Wins: True independence as a "Third Realm" between cosmic forces
+
+THE CULTIVATION RACE
+Every sect now races to produce Divine Resonance cultivators, knowing that stronger mortals mean better defense but also hasten the war's arrival.
+
+Your choices will determine whether Taeloria remains free, or falls under the dominion of ancient cosmic powers.</p>
+            </div>
+        </div>
+    </section>  
+
+    <section id="divine-pantheon" class="content-section">
+        <h2 class="section-title">Divine Pantheon</h2>
+        <div class="lore-block">
+            <h3 class="lore-title">The Gods Who Shape Reality</h3>
+            <p class="lore-subtitle">Meet the Supreme Powers Ruling Taeloria</p>
+            <div class="lore-content">
+                <p>Born from primordial forces and cosmic betrayal, the divine hierarchy of Taeloria governs the delicate balance between creation and destruction, order and chaos.
+
+THE SUPREME TRIAD - RULING GODS
+
+CORELLON - THE ARCHITECT OF REALITY
+God of Creation
+Emerged from the Primordial Void as the first consciousness. Though limited by his incomplete origin, Corellon shapes reality through perfect geometric patterns. From his throne on Creation Isle, he maintains the cosmic balance that prevents reality from collapsing into chaos.
+
+SANGO - THE KING OF HELL
+God of Chaos & Death
+Rules both the Murim Realm and the Eighteen Abyssal Pits below. Twilight Nexus oversees all transitions between life and death.
+
+ASTER - THE BLOODFALLEN
+War King of Heaven & God of Carnage
+Believes strength through conflict drives evolution. Transformed by the Perfect Conquest primordial force, he tests mortals through endless combat. His Crimson Citadel on Blood Isle serves as an eternal arena where honor is earned through blood.
+
+THE DIVINE PEERS - SIBLINGS OF POWER
+
+ARWEN - GODDESS OF SUN & MOON
+Mistress of Celestial Cycles
+Embodies the eternal dance between light and shadow. She governs cosmic rhythms and serves as bridge between opposing forces.
+
+RONDO - GOD OF OBSCURITY
+Keeper of Hidden Knowledge
+Sango's enigmatic brother who dwells in the Shrouded Court. Enhanced by The Hidden Truth primordial entity, he oversees secrets and forbidden knowledge crucial to maintaining cosmic balance.
+
+THE VASSAL GODS
+Powerful entities serving the Supreme Triad:
+
+The Enslaved God of Forbidden Desire (serves Corellon)
+The Enslaved God of Lust (serves Corellon)
+The Enslaved God of Love (serves Corellon)
+The God of Blades (serves Aster)
+The God of Calmness (serves Aster)
+The God of Rage (prophesied future ascension under Aster)
+
+THE SOUL REAPERS
+Sango's divine extensions who guide souls to their destinations:
+
+The Abyss Reaper (guides souls to Hell)
+The Celestial Reaper (guides souls to higher realms)
+Nexaren - The Veiled Reaper (oversees rebirth in seclusion)
+
+Choose your divine allegiance carefully - the gods remember both loyalty and betrayal.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="seven-islands" class="content-section">
+        <h2 class="section-title">Seven Islands</h2>
+        <!-- Island Buttons -->
+        <div class="island-buttons">
+            <button class="sub-btn" data-island="creation">Creation Isle</button>
+            <button class="sub-btn" data-island="death">Death's Domain</button>
+            <button class="sub-btn" data-island="blood">Blood Isle</button>
+            <button class="sub-btn" data-island="luminous">Luminous Isle</button>
+            <button class="sub-btn" data-island="whispering">Whispering Woods</button>
+            <button class="sub-btn" data-island="veiled">Veiled Isle</button>
+            <button class="sub-btn" data-island="haven">Haven Isle</button>
+            <button class="sub-btn" data-island="unknown">Unknown Isle</button>
+        </div>
+
+        <!-- Island Sections -->
+        <div id="creation-island" class="sub-section">
+            <div class="lore-block">
+                <h3 class="lore-title">Creation Isle</h3>
+                <p class="lore-subtitle">The Geometric Heart of Existence Where Reality Bends to Divine Will</p>
+                <div class="lore-content">
+                    <p>Creation Isle serves as the cosmic center of Taeloria, where Corellon shapes reality through perfect geometric patterns. The Living Nexus at its heart continuously manifests new possibilities, while impossible architecture defies mortal understanding.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="death-island" class="sub-section">
+            <div class="lore-block">
+                <h3 class="lore-title">Death's Domain</h3>
+                <p class="lore-subtitle">Unknown</p>
+                <div class="lore-content">
+                    <p>Unknown</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="blood-island" class="sub-section">
+            <div class="lore-block">
+                <h3 class="lore-title">Blood Isle</h3>
+                <p class="lore-subtitle">Unknown</p>
+                <div class="lore-content">
+                    <p>Unknown</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="luminous-island" class="sub-section">
+            <div class="lore-block">
+                <h3 class="lore-title">Luminous Isle</h3>
+                <p class="lore-subtitle">Unknown</p>
+                <div class="lore-content">
+                    <p>Unknown</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="whispering-island" class="sub-section">
+            <div class="lore-block">
+                <h3 class="lore-title">Whispering Woods</h3>
+                <p class="lore-subtitle">Unknown</p>
+                <div class="lore-content">
+                    <p>Unknown</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="veiled-island" class="sub-section">
+            <div class="lore-block">
+                <h3 class="lore-title">Veiled Isle</h3>
+                <p class="lore-subtitle">Unknown</p>
+                <div class="lore-content">
+                    <p>Unknown</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="haven-island" class="sub-section">
+            <div class="lore-block">
+                <h3 class="lore-title">Haven Isle</h3>
+                <p class="lore-subtitle">Unknown</p>
+                <div class="lore-content">
+                    <p>Unknown</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="unknown-island" class="sub-section">
+            <div class="lore-block">
+                <h3 class="lore-title">Unknown Isle</h3>
+                <p class="lore-subtitle">Unknown</p>
+                <div class="lore-content">
+                    <p>Unknown</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Main navigation buttons
+            const buttons = document.querySelectorAll('.nav-btn');
+            const sections = document.querySelectorAll('.content-section');
+            
+            // Cultivation sub-buttons
+            const subButtons = document.querySelectorAll('.sub-btn');
+            const subSections = document.querySelectorAll('.sub-section');
+            
+            // Tier buttons (for races and traits)
+            const tierButtons = document.querySelectorAll('.tier-btn');
+            const tierSections = document.querySelectorAll('.tier-section');
+            
+            // Realm buttons (for body and qi realms)
+            const realmButtons = document.querySelectorAll('.realm-btn');
+            const realmSections = document.querySelectorAll('.realm-section');
+            
+            // Island buttons
+            const islandButtons = document.querySelectorAll('[data-island]');
+            
+            // Initialize first section as active
+            buttons[0].classList.add('active');
+            sections[0].classList.add('active');
+            
+            // Main navigation button functionality
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    sections.forEach(section => section.classList.remove('active'));
+                    
+                    button.classList.add('active');
+                    document.getElementById(button.getAttribute('data-section')).classList.add('active');
+                    
+                    // Hide all sub-sections when switching main sections
+                    subSections.forEach(section => section.classList.remove('active'));
+                    subButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Hide all tier sections and buttons
+                    tierSections.forEach(section => section.classList.remove('active'));
+                    tierButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Hide all realm sections and buttons
+                    realmSections.forEach(section => section.classList.remove('active'));
+                    realmButtons.forEach(btn => btn.classList.remove('active'));
+                });
+            });
+            
+            // Cultivation sub-button functionality
+            subButtons.forEach(button => {
+                if (button.hasAttribute('data-subsection')) {
+                    button.addEventListener('click', () => {
+                        const parentSection = button.closest('.content-section');
+                        parentSection.querySelectorAll('.sub-btn').forEach(btn => btn.classList.remove('active'));
+                        parentSection.querySelectorAll('.sub-section').forEach(section => section.classList.remove('active'));
+                        
+                        button.classList.add('active');
+                        document.getElementById(button.getAttribute('data-subsection')).classList.add('active');
+                        
+                        // Hide all tier sections and buttons when switching sub-sections
+                        parentSection.querySelectorAll('.tier-section').forEach(section => section.classList.remove('active'));
+                        parentSection.querySelectorAll('.tier-btn').forEach(btn => btn.classList.remove('active'));
+                        
+                        // Hide all realm sections and buttons when switching sub-sections
+                        parentSection.querySelectorAll('.realm-section').forEach(section => section.classList.remove('active'));
+                        parentSection.querySelectorAll('.realm-btn').forEach(btn => btn.classList.remove('active'));
+                    });
+                }
+            });
+            
+            // Tier button functionality (for races and traits)
+            tierButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const parentSubSection = button.closest('.sub-section');
+                    parentSubSection.querySelectorAll('.tier-btn').forEach(btn => btn.classList.remove('active'));
+                    parentSubSection.querySelectorAll('.tier-section').forEach(section => section.classList.remove('active'));
+                    
+                    button.classList.add('active');
+                    
+                    // Handle both race and trait tiers
+                    const tierType = button.getAttribute('data-tier');
+                    if (tierType.includes('traits')) {
+                        document.getElementById(tierType).classList.add('active');
+                    } else {
+                        document.getElementById(`${tierType}-race`).classList.add('active');
+                    }
+                });
+            });
+            
+            // Realm button functionality (for body and qi realms)
+            realmButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const parentSubSection = button.closest('.sub-section');
+                    parentSubSection.querySelectorAll('.realm-btn').forEach(btn => btn.classList.remove('active'));
+                    parentSubSection.querySelectorAll('.realm-section').forEach(section => section.classList.remove('active'));
+                    
+                    button.classList.add('active');
+                    document.getElementById(button.getAttribute('data-realm')).classList.add('active');
+                });
+            });
+            
+            islandButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const parentSection = button.closest('.content-section');
+                    parentSection.querySelectorAll('.sub-btn').forEach(btn => btn.classList.remove('active'));
+                    parentSection.querySelectorAll('.sub-section').forEach(section => section.classList.remove('active'));
+                    
+                    button.classList.add('active');
+                    document.getElementById(`${button.getAttribute('data-island')}-island`).classList.add('active');
+                });
             });
         });
     </script>
