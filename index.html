@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taeloria - The Suspended Vessel of Potential</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Marcellus&display=swap" rel="stylesheet">
+    <title>Marco Prepotente</title>
     <style>
+        /* CSS Reset */
         * {
             margin: 0;
             padding: 0;
@@ -15,221 +13,240 @@
         }
 
         body {
-            font-family: 'Marcellus', serif;
-            background: #0a0a15 url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=1471&auto=format&fit=crop') no-repeat center/cover fixed;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000;
             color: #fff;
-            line-height: 1.8;
-            min-height: 100vh;
-            overflow-x: hidden;
-            padding: 20px;
+            height: 100vh;
+            display: flex;
+            overflow: hidden;
         }
 
-        .header {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(10, 10, 20, 0.8);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 10px;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        .main-title {
-            font-family: 'Cinzel', serif;
-            font-size: 4rem;
-            color: #D4AF37;
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
-            letter-spacing: 3px;
-            margin-bottom: 0.5rem;
-        }
-
-        .sub-title {
-            font-size: 1.5rem;
-            color: #fff;
-            opacity: 0.9;
-            letter-spacing: 1px;
-        }
-
-        .nav-buttons {
+        .photo-section {
+            flex: 1;
+            background-color: #111;
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            padding: 1rem;
-            margin-bottom: 2rem;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .nav-btn {
-            background: rgba(212, 175, 55, 0.2);
-            color: #D4AF37;
-            border: 2px solid #D4AF37;
-            padding: 0.8rem 1.5rem;
-            font-family: 'Cinzel', serif;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-radius: 5px;
+        .photo-placeholder {
+            width: 80%;
+            height: 80%;
+            border: 5px solid #fff;
+            background-color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: #aaa;
+            box-shadow: 0 0 50px rgba(255,255,255,0.1);
         }
 
-        .nav-btn:hover, .nav-btn.active {
-            background: rgba(212, 175, 55, 0.5);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        .info-section {
+            flex: 1;
+            padding: 5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(135deg, #000 0%, #222 100%);
         }
 
-        .content-section {
-            display: none;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-            background: rgba(15, 15, 25, 0.8);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .content-section.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .section-title {
-            font-family: 'Cinzel', serif;
-            color: #D4AF37;
-            font-size: 1.8rem;
+        .name {
+            font-size: 4rem;
+            font-weight: 800;
             margin-bottom: 1.5rem;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-            padding-bottom: 0.5rem;
+            letter-spacing: -1px;
+            position: relative;
+            display: inline-block;
         }
 
-        .lore-block {
-            background: rgba(10, 10, 20, 0.6);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        .name::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #fff 0%, transparent 100%);
         }
 
-        .lore-title {
-            font-family: 'Cinzel', serif;
-            color: #D4AF37;
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
+        .info-item {
+            margin: 1.2rem 0;
+            font-size: 1.3rem;
+            display: flex;
         }
 
-        .lore-subtitle {
-            font-family: 'Marcellus', serif;
-            color: #c0b0d0;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            font-style: italic;
-            border-bottom: 1px dashed rgba(212, 175, 55, 0.2);
-            padding-bottom: 0.5rem;
+        .info-label {
+            font-weight: 600;
+            width: 200px;
+            color: #aaa;
         }
 
-        .lore-content {
-            margin-top: 1rem;
+        .info-value {
+            font-weight: 400;
         }
 
-        @media (max-width: 768px) {
-            .main-title { font-size: 2.5rem; }
-            .sub-title { font-size: 1.2rem; }
-            .nav-buttons { flex-direction: column; align-items: center; }
-            .nav-btn { width: 100%; text-align: center; }
-            .content-section { padding: 1.5rem; }
+        .decoration {
+            position: absolute;
+            background-color: #fff;
+            opacity: 0.05;
+        }
+
+        .dec-1 {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            top: -100px;
+            left: -100px;
+        }
+
+        .dec-2 {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            bottom: -50px;
+            right: -50px;
+        }
+
+        .dec-3 {
+            width: 100%;
+            height: 1px;
+            bottom: 30%;
+            left: 0;
+            background: linear-gradient(90deg, transparent 0%, #fff 50%, transparent 100%);
+        }
+
+        @media (max-width: 1200px) {
+            .name {
+                font-size: 3rem;
+            }
+            
+            .info-item {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+                height: auto;
+                min-height: 100vh;
+            }
+            
+            .photo-section {
+                padding: 3rem 0;
+            }
+            
+            .photo-placeholder {
+                width: 300px;
+                height: 300px;
+                border-radius: 50%;
+            }
+            
+            .info-section {
+                padding: 3rem;
+            }
+            
+            .name {
+                font-size: 2.5rem;
+                text-align: center;
+            }
+            
+            .name::after {
+                left: 50%;
+                transform: translateX(-50%);
+                width: 50%;
+            }
+            
+            .info-item {
+                flex-direction: column;
+            }
+            
+            .info-label {
+                width: 100%;
+                margin-bottom: 0.3rem;
+            }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <h1 class="main-title">TAELORIA</h1>
-        <p class="sub-title">The Suspended Vessel of Potential</p>
-    </header>
-
-    <div class="nav-buttons">
-        <button class="nav-btn" data-section="overview">Overview</button>
-        <button class="nav-btn" data-section="seven-islands">Seven Islands</button>
-        <button class="nav-btn" data-section="cultivation">Cultivation</button>
-        <button class="nav-btn" data-section="divine-pantheon">Divine Pantheon</button>
-        <button class="nav-btn" data-section="heavens-trial">Heaven's Trial</button>
+    <div class="photo-section">
+        <div class="decoration dec-1"></div>
+        <div class="decoration dec-2"></div>
+        <div class="photo-placeholder">
+            [Wala Pang Picture]
+        </div>
     </div>
+    
+    <div class="info-section">
+        <div class="decoration dec-3"></div>
+        <h1 class="name">Marco Antonio Prepotente</h1>
+        
+        <div class="info-item">
+            <span class="info-label">Age:</span>
+            <span class="info-value">16</span>
+        </div>
+        
+        <div class="info-item">
+            <span class="info-label">Date of Birth:</span>
+            <span class="info-value">April 9, 2009</span>
+        </div>
+        
+        <div class="info-item">
+            <span class="info-label">Nationality:</span>
+            <span class="info-value">Filipino</span>
+        </div>
 
-    <section id="overview" class="content-section">
-        <h2 class="section-title">Overview</h2>
-        <div class="lore-block">
-            <h3 class="lore-title">Title....</h3>
-            <p class="lore-subtitle">SubTitle...</p>
-            <div class="lore-content">
-                <p>Main Content...</p>
-            </div>
+        <div class="info-item">
+            <span class="info-label">Sex:</span>
+            <span class="info-value">Male</span>
         </div>
         
-    </section>
+        
+        <div class="info-item">
+            <span class="info-label">Gender:</span>
+            <span class="info-value">Asexual</span>
+        </div>
 
-    <section id="cultivation" class="content-section">
-        <h2 class="section-title">Cultivation</h2>
-        <div class="lore-block">
-            <h3 class="lore-title">Title....</h3>
-            <p class="lore-subtitle">SubTitle...</p>
-            <div class="lore-content">
-                <p>Main Content...</p>
-            </div>
+        <div class="info-item">
+            <span class="info-label">School Grade Level:</span>
+            <span class="info-value">11</span>
         </div>
         
-    </section>
-    <section id="heavens-trial" class="content-section">
-        <h2 class="section-title">Heaven's Trial</h2>
-        <div class="lore-block">
-            <h3 class="lore-title">Title....</h3>
-            <p class="lore-subtitle">SubTitle...</p>
-            <div class="lore-content">
-                <p>Main Content...</p>
-            </div>
+        <div class="info-item">
+            <span class="info-label">School Name:</span>
+            <span class="info-value">Ligao National High School</span>
         </div>
         
-    </section>  
+        <div class="info-item">
+            <span class="info-label">Address:</span>
+            <span class="info-value">Sta. Cruz, Bonifacio Street, Albay, Ligao City</span>
+        </div>
 
-    <section id="divine-pantheon" class="content-section">
-        <h2 class="section-title">Divine Pantheon</h2>
-        <div class="lore-block">
-            <h3 class="lore-title">Title....</h3>
-            <p class="lore-subtitle">SubTitle...</p>
-            <div class="lore-content">
-                <p>Main Content...</p>
-            </div>
+        <div class="info-item">
+            <span class="info-label">Hobbies:</span>
+            <span class="info-value">Eating,Eating,Eating,Reading Manwha's/Manga's</span>  
         </div>
-        
-    </section>
 
-    <section id="seven-islands" class="content-section">
-        <h2 class="section-title">Seven Islands</h2>
-        <div class="lore-block">
-            <h3 class="lore-title">Title....</h3>
-            <p class="lore-subtitle">SubTitle...</p>
-            <div class="lore-content">
-                <p>Main Content...</p>
-            </div>
-        </div>
-        
-    </section>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const buttons = document.querySelectorAll('.nav-btn');
-            const sections = document.querySelectorAll('.content-section');
-
-            buttons.forEach(button => {
-                button.addEventListener('click', () => {
-                    buttons.forEach(btn => btn.classList.remove('active'));
-                    sections.forEach(section => section.classList.remove('active'));
-                    button.classList.add('active');
-                    document.getElementById(button.getAttribute('data-section')).classList.add('active');
-                });
+        // Simple animation on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const items = document.querySelectorAll('.info-item');
+            
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                }, index * 100);
+            });
+            
+            // Set initial styles for animation
+            items.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             });
         });
     </script>
