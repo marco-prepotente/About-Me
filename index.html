@@ -17,206 +17,179 @@
             background-color: #000;
             color: #fff;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
             overflow-x: hidden;
         }
 
-        .main-container {
+        .container {
             display: flex;
-            flex: 1;
-            flex-direction: row;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
+        /* Photo section - mobile first (circle) */
         .photo-section {
-            flex: 1;
             background-color: #111;
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
-            min-height: 50vh;
             padding: 2rem;
+            min-height: 40vh;
         }
 
-        .photo-placeholder {
-            width: 100%;
-            max-width: 500px;
-            height: 100%;
-            max-height: 500px;
+        .photo-container {
+            width: 250px;
+            height: 250px;
             border: 5px solid #fff;
             background-color: #222;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.5rem;
-            color: #aaa;
+            overflow: hidden;
             box-shadow: 0 0 50px rgba(255,255,255,0.1);
-            border-radius: 10px;
+            border-radius: 50%; /* Circle on mobile */
         }
 
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none; /* Hidden by default */
+        }
+
+        .photo-placeholder {
+            font-size: 1.2rem;
+            color: #aaa;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* Info section */
         .info-section {
-            flex: 1;
             padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
             background: linear-gradient(135deg, #000 0%, #222 100%);
-            overflow-y: auto;
-            max-height: 100vh;
         }
 
         .info-content {
             max-width: 800px;
             margin: 0 auto;
-            width: 100%;
         }
 
         .name {
-            font-size: clamp(2rem, 5vw, 4rem);
+            font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 1.5rem;
             letter-spacing: -1px;
             position: relative;
             display: inline-block;
+            text-align: center;
+            width: 100%;
         }
 
         .name::after {
             content: '';
             position: absolute;
             bottom: -10px;
-            left: 0;
-            width: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
             height: 3px;
             background: linear-gradient(90deg, #fff 0%, transparent 100%);
         }
 
         .info-item {
             margin: 1.2rem 0;
-            font-size: clamp(1rem, 2vw, 1.3rem);
+            font-size: 1.1rem;
             display: flex;
             flex-wrap: wrap;
         }
 
         .info-label {
             font-weight: 600;
-            width: 200px;
+            width: 100%;
             color: #aaa;
             margin-bottom: 0.3rem;
         }
 
         .info-value {
             font-weight: 400;
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .decoration {
-            position: absolute;
-            background-color: #fff;
-            opacity: 0.05;
-        }
-
-        .dec-1 {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            top: -100px;
-            left: -100px;
-        }
-
-        .dec-2 {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            bottom: -50px;
-            right: -50px;
-        }
-
-        .dec-3 {
             width: 100%;
-            height: 1px;
-            bottom: 30%;
-            left: 0;
-            background: linear-gradient(90deg, transparent 0%, #fff 50%, transparent 100%);
         }
 
-        /* Responsive Breakpoints */
-        @media (max-width: 1024px) {
-            .main-container {
-                flex-direction: column;
-            }
-            
-            .photo-section {
-                min-height: 400px;
-                padding: 2rem 1rem;
-            }
-            
-            .photo-placeholder {
-                max-height: 400px;
-            }
-            
-            .info-section {
-                padding: 2rem 1rem;
-                max-height: none;
-            }
-            
-            .name {
-                text-align: center;
-            }
-            
-            .name::after {
-                left: 50%;
-                transform: translateX(-50%);
-                width: 80%;
-            }
-            
-            .info-item {
-                flex-direction: column;
-            }
-            
-            .info-label {
-                width: 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .photo-placeholder {
-                height: 300px;
-            }
-            
-            .info-item {
-                font-size: 1rem;
-            }
-        }
-
-        /* Smooth transitions for window resizing */
-        @media (min-width: 1025px) {
-            .main-container {
+        /* PC layout (min-width: 1024px) */
+        @media (min-width: 1024px) {
+            .container {
                 flex-direction: row;
             }
-            
+
             .photo-section {
                 position: sticky;
                 top: 0;
                 height: 100vh;
+                width: 50%;
+                min-height: auto;
             }
+
+            .photo-container {
+                width: 80%;
+                height: 80%;
+                max-width: 500px;
+                max-height: 500px;
+                border-radius: 10px; /* Square on desktop */
+            }
+
+            .info-section {
+                width: 50%;
+                height: 100vh;
+                overflow-y: auto;
+                padding: 4rem;
+            }
+
+            .name {
+                text-align: left;
+                font-size: 3.5rem;
+            }
+
+            .name::after {
+                left: 0;
+                transform: none;
+                width: 100%;
+            }
+
+            .info-item {
+                flex-direction: row;
+                font-size: 1.2rem;
+            }
+
+            .info-label {
+                width: 200px;
+                margin-bottom: 0;
+            }
+
+            .info-value {
+                width: calc(100% - 200px);
+            }
+        }
+
+        /* Smooth transitions */
+        .photo-section, .info-section, .name, .info-item, .photo-container {
+            transition: all 0.3s ease;
         }
     </style>
 </head>
 <body>
-    <div class="main-container">
+    <div class="container">
         <div class="photo-section">
-            <div class="decoration dec-1"></div>
-            <div class="decoration dec-2"></div>
-            <div class="photo-placeholder">
-                [Wala Pang Picture]
+            <div class="photo-container">
+                <!-- Replace with your image -->
+                <img class="profile-image" id="profile-pic" src="" alt="Marco Prepotente">
+                <div class="photo-placeholder">
+                    [Image Loading...]
+                </div>
             </div>
         </div>
         
         <div class="info-section">
             <div class="info-content">
-                <div class="decoration dec-3"></div>
                 <h1 class="name">Marco Antonio Prepotente</h1>
                 
                 <div class="info-item">
@@ -268,42 +241,36 @@
     </div>
 
     <script>
-        // Enhanced animation on load
+        const imageUrl = 'https://raw.githubusercontent.com/marco-prepotente/About-Me/main/myimage.jpg';
+        
         document.addEventListener('DOMContentLoaded', function() {
-            const items = document.querySelectorAll('.info-item');
-            const photo = document.querySelector('.photo-placeholder');
+            const profilePic = document.getElementById('profile-pic');
+            const placeholder = document.querySelector('.photo-placeholder');
             
-            // Photo animation
-            setTimeout(() => {
-                photo.style.opacity = '1';
-                photo.style.transform = 'scale(1)';
-            }, 200);
+            if (imageUrl) {
+                profilePic.src = imageUrl;
+                profilePic.onload = function() {
+                    profilePic.style.display = 'block';
+                    placeholder.style.display = 'none';
+                };
+                profilePic.onerror = function() {
+                    placeholder.textContent = '[Image Failed to Load]';
+                };
+            } else {
+                placeholder.textContent = '[No Image URL Provided]';
+            }
             
-            // Initial styles for animation
-            photo.style.opacity = '0';
-            photo.style.transform = 'scale(0.9)';
-            photo.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            
-            // Info items animation
-            items.forEach((item, index) => {
+            // Animate elements on load
+            const elements = document.querySelectorAll('.photo-container, .info-item');
+            elements.forEach((el, index) => {
                 setTimeout(() => {
-                    item.style.opacity = '1';
-                    item.style.transform = 'translateX(0)';
-                }, 300 + (index * 100));
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 100 * index);
                 
-                item.style.opacity = '0';
-                item.style.transform = 'translateX(20px)';
-                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            });
-            
-            // Handle window resize smoothly
-            let resizeTimer;
-            window.addEventListener('resize', function() {
-                document.body.classList.add('resize-animation-stopper');
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(() => {
-                    document.body.classList.remove('resize-animation-stopper');
-                }, 400);
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             });
         });
     </script>
